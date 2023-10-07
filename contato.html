@@ -7,7 +7,7 @@
     <title>Contato</title>
   </head>
   <body>
-    <header>
+    <header class="header">
       <h1>Entre em Contato</h1>
       <p>Estamos aqui para ajudar. Envie-nos uma mensagem no WhatsApp.</p>
       <nav>
@@ -20,17 +20,41 @@
 
     <section>
       <h2>Formulário de Contato</h2>
-      <form id="contact-form" action="enviar_whatsapp.php" method="post">
+      <form id="contact-form" target="_blank">
         <label for="name">Seu Nome:</label>
         <input type="text" id="name" name="name" required />
 
         <label for="problem">Descreva o Problema:</label>
         <textarea id="problem" name="problem" rows="4" required></textarea>
 
-        <button type="submit" class="whatsapp-button">
+        <button type="submit" id="send-button" class="whatsapp-button">
           Enviar Mensagem no WhatsApp
         </button>
       </form>
     </section>
+
+    <script>
+      // JavaScript para abrir o WhatsApp com a mensagem preenchida
+      document
+        .getElementById("send-button")
+        .addEventListener("click", function () {
+          var name = document.getElementById("name").value;
+          var problem = document.getElementById("problem").value;
+          // Verifica se ambos os campos estão preenchidos antes de abrir o WhatsApp
+          if (name.trim() !== "" && problem.trim() !== "") {
+            var message =
+              "Olá, meu nome é " +
+              name +
+              " e estou enfrentando o seguinte problema: " +
+              problem;
+            var encodedMessage = encodeURIComponent(message);
+            var whatsappURL =
+              "https://api.whatsapp.com/send?phone=41995820349&text=" +
+              encodedMessage;
+            window.location.href = whatsappURL;
+          } else {
+          }
+        });
+    </script>
   </body>
 </html>

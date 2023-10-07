@@ -3,14 +3,22 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
+    background-color: #C7D2EA;
+    
 }
 
-header {
-    background-color: #007bff;
+.header {
+    /* background-color: #007bff;
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 20px; */
+    /* Define a imagem de fundo para o cabeçalho */
+    background-image: url('images/keyboard.jpg'); /* Substitua 'seu-logo.png' pelo caminho da sua imagem de fundo */
+    background-size: cover; /* Ajusta o tamanho da imagem para cobrir todo o cabeçalho */
+    background-position: center; /* Centraliza a imagem de fundo */
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px; /* Ajuste a quantidade de preenchimento conforme necessário */
 }
 
 header > nav {
@@ -33,6 +41,10 @@ a {
     color: #fff;
 }
 
+a:hover {
+    color: #7E9FE6;
+}
+
 section {
     margin: 20px;
     padding: 20px;
@@ -48,3 +60,48 @@ section {
     border-radius: 5px;
     text-decoration: none;
 }
+
+
+.footer {
+    background-color: #252999;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .contact-info,
+  .social-media {
+    flex: 1;
+  }
+  
+  .contact-info h3,
+  .social-media h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .contact-info p,
+  .social-media a {
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .social-media a {
+    display: block;
+    margin-top: 5px;
+  }
+  
+  .footer-bottom {
+    background-color: #4F53E6;
+    color: #fff;
+    padding: 10px 0;
+    font-size: 14px;
+  }
