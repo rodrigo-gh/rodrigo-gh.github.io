@@ -12,7 +12,7 @@
       <p>Estamos aqui para ajudar. Envie-nos uma mensagem no WhatsApp.</p>
       <nav>
         <ul>
-          <li><a href="https://rodrigo-gh.github.io/">Página Inicial</a></li>
+          <li><a href="index.html">Página Inicial</a></li>
           <li><a href="servicos.html">Serviços</a></li>
         </ul>
       </nav>
@@ -27,6 +27,9 @@
         <label for="problem">Descreva o Problema:</label>
         <textarea id="problem" name="problem" rows="4" required></textarea>
 
+        <!-- Adicione um campo oculto para evitar bots -->
+        <input type="hidden" name="bot-field" />
+
         <button type="submit" id="send-button" class="whatsapp-button">
           Enviar Mensagem no WhatsApp
         </button>
@@ -36,12 +39,20 @@
     <script>
       // JavaScript para abrir o WhatsApp com a mensagem preenchida
       document
-        .getElementById("send-button")
-        .addEventListener("click", function () {
+        .getElementById("contact-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Evita o envio automático do formulário
+
           var name = document.getElementById("name").value;
           var problem = document.getElementById("problem").value;
-          // Verifica se ambos os campos estão preenchidos antes de abrir o WhatsApp
-          if (name.trim() !== "" && problem.trim() !== "") {
+
+          // Verifica se ambos os campos estão preenchidos e não contêm caracteres especiais
+          if (
+            name.trim() !== "" &&
+            problem.trim() !== "" &&
+            isValidInput(name) &&
+            isValidInput(problem)
+          ) {
             var message =
               "Olá, meu nome é " +
               name +
@@ -53,8 +64,15 @@
               encodedMessage;
             window.location.href = whatsappURL;
           } else {
+            alert("Por favor, preencha todos os campos corretamente.");
           }
         });
+
+      // Função para validar entrada contra caracteres especiais
+      function isValidInput(input) {
+        var pattern = /^[a-zA-Z0-9\s]+$/; // Permite letras, números e espaços
+        return pattern.test(input);
+      }
     </script>
   </body>
 </html>
