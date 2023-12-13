@@ -1,24 +1,52 @@
 /* Estilos Globais */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #C7D2EA;
-    
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding-left: 10%;
+  padding-right: 10%;
+  /* padding-bottom: 60px; */
+  background-color: #C7D2EA;
+  box-sizing: border-box; /* Adiciona esta linha */
+  min-height: 100vh;
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
 }
 
+
 .header {
-    /* background-color: #007bff;
-    color: #fff;
-    text-align: center;
-    padding: 20px; */
-    /* Define a imagem de fundo para o cabeçalho */
-    background-image: url('images/keyboard.jpg'); /* Substitua 'seu-logo.png' pelo caminho da sua imagem de fundo */
-    background-size: cover; /* Ajusta o tamanho da imagem para cobrir todo o cabeçalho */
-    background-position: center; /* Centraliza a imagem de fundo */
-    color: #fff;
-    text-align: center;
-    padding: 100px 20px; /* Ajuste a quantidade de preenchimento conforme necessário */
+  position: relative;
+  background-image: url('images/fundo.jpg');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 50px 0px;
+  /* color: #fff; */
+}
+.nome {
+  /* font-size: 24px; Ajuste conforme necessário */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* width: fit-content; */
+  color: white;
+
+}
+
+.inicial {
+  display: inline-block;
+  font-size: 40px;
+  margin-right: 5px; /* Adicione um espaçamento entre as iniciais, se desejar */
+}
+
+.inicial:nth-child(1) {
+  color: #000; /* Cor da primeira inicial */
+}
+
+.inicial:nth-child(2) {
+  color: #b4b7bd; /* Cor da segunda inicial */
+}
+
+.inicial:nth-child(3) {
+  color: #000; /* Cor da terceira inicial */
 }
 
 header > nav {
@@ -26,14 +54,18 @@ header > nav {
 }
 
 nav ul {
+    /* background-color: #63d6db; */
+    width: fit-content;
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 5px;
 }
 
 nav li {
+  /* text-align: center; */
     display: inline;
-    margin-right: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 a {
@@ -45,10 +77,36 @@ a:hover {
     color: #7E9FE6;
 }
 
-section {
-    margin: 20px;
+.section {
+  background-color: chartreuse;
+  /* width: fit-content; */
+  flex-grow: 1;
+    /* margin: 20px; */
     padding: 20px;
     background-color: #fff;
+    text-align: start;
+}
+
+.section-text{
+  background-color: #25d366;
+  /* width: 80vw; */
+  /* margin: 3%; */
+}
+
+section ul{
+  list-style-type: circle;
+  padding: 0;
+  /* text-align: center; */
+}
+
+section li {
+  /* display: inline-block; */
+  margin-bottom: 10px; /* Adiciona espaçamento entre os itens, ajuste conforme necessário */
+  list-style-position: inside; /* Alinha os marcadores dentro do bloco de conteúdo */
+}
+
+.section-services {
+  text-align: justify;  
 }
 
 /* Estilos Específicos de Página */
@@ -59,49 +117,55 @@ section {
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
+    cursor: pointer;
+    
+}
+
+button:hover {
+  background-color: #128c7e;
+}
+
+.footer {
+  background-color: #b4b7bd;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+}
+
+#footer-title{
+  padding: 0;
+  margin: 0;
+}
+
+.footer-bottom{
+  font-size: 10px;
+  text-align: center;
 }
 
 
-.footer {
-    background-color: #252999;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
-  .footer-content {
-    display: flex;
-    justify-content: space-around;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .contact-info,
-  .social-media {
-    flex: 1;
-  }
-  
-  .contact-info h3,
-  .social-media h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .contact-info p,
-  .social-media a {
-    font-size: 16px;
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .social-media a {
-    display: block;
-    margin-top: 5px;
-  }
-  
-  .footer-bottom {
-    background-color: #4F53E6;
-    color: #fff;
-    padding: 10px 0;
-    font-size: 14px;
-  }
+#contact-form {
+  max-width: 400px;
+  margin: 0 auto; /* Centraliza o formulário */
+  text-align: center;
+}
+
+#contact-form div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  text-align: left; /* Alinha o texto do label à esquerda */
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.section-contato{
+  text-align: center;
+}

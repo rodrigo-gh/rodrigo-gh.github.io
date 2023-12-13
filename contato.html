@@ -4,28 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Contato</title>
+    <title>Manutenção de Computadores</title>
   </head>
   <body>
     <header class="header">
-      <h1>Entre em Contato</h1>
-      <p>Estamos aqui para ajudar. Envie-nos uma mensagem no WhatsApp.</p>
-      <nav>
-        <ul>
-          <li><a href="https://rodrigo-gh.github.io/">Página Inicial</a></li>
-          <li><a href="servicos.html">Serviços</a></li>
-        </ul>
-      </nav>
+      <div class="nome">
+        <span class="inicial">R</span>
+        <span class="inicial">N</span>
+        <span class="inicial">K</span>
+        <p>Soluções de informática</p>
+
+        <nav>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <!-- <li><a href="teste.html">Teste</a></li> -->
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <section>
-      <h2>Formulário de Contato</h2>
+    <section class="section">
+      <h2 class="section-contato">Contato</h2>
       <form id="contact-form" target="_blank">
-        <label for="name">Seu Nome:</label>
-        <input type="text" id="name" name="name" required />
+        <div>
+          <div><label for="name">Seu Nome:</label></div>
+          <input type="text" id="name" name="name" required />
+        </div>
 
-        <label for="problem">Descreva o Problema:</label>
-        <textarea id="problem" name="problem" rows="4" required></textarea>
+        <div>
+          <div><label for="problem">Descreva o Problema:</label></div>
+          <textarea
+            id="problem"
+            name="problem"
+            rows="4"
+            pattern="[A-Za-z]+"
+            title="Somente letras são permitidas"
+            required
+          ></textarea>
+        </div>
 
         <button type="submit" id="send-button" class="whatsapp-button">
           Enviar Mensagem no WhatsApp
@@ -33,6 +50,20 @@
       </form>
     </section>
 
+    <footer class="footer">
+      <div>
+        <div>
+          <h3 id="footer-title">Entre em Contato</h3>
+          <a href="contato.html">
+            <p>Telefone: (41) 99582-0349</p>
+          </a>
+          <p>rodrigo_knop@outlook.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2023 RNK. Todos os direitos reservados.
+      </div>
+    </footer>
     <script>
       // JavaScript para abrir o WhatsApp com a mensagem preenchida
       document
@@ -51,10 +82,23 @@
             var whatsappURL =
               "https://api.whatsapp.com/send?phone=41995820349&text=" +
               encodedMessage;
-            window.location.href = whatsappURL;
+            // window.location.href = whatsappURL;
+            window.open(whatsappURL, "_blank");
           } else {
           }
         });
+      // Adiciona um ouvinte de evento para a validação do nome
+      document.getElementById("name").addEventListener("input", function () {
+        var nameInput = this.value;
+
+        // Utiliza uma expressão regular para permitir apenas letras
+        var regex = /^[a-zA-Z]+$/;
+
+        if (!regex.test(nameInput)) {
+          alert("Por favor, insira apenas letras no campo de nome.");
+          this.value = this.value.replace(/[^a-zA-Z]/g, ""); // Remove caracteres não permitidos
+        }
+      });
     </script>
   </body>
 </html>
